@@ -18,7 +18,11 @@ sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CU
 # Zsh-z
 sudo git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 # command not found: zoxide (error)
-sudo mv ~/.local/bin/zoxide /usr/local/bin/
+ZOXIDE_FILE="~/.local/bin/zoxide"
+if [ -f "$ZOXIDE_FILE" ]; then
+    # Move the zoxide file to /usr/local/bin/
+    sudo mv "$ZOXIDE_FILE" /usr/local/bin/
+fi
 
 chsh -s $(which zsh)
 
