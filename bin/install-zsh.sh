@@ -22,9 +22,15 @@ sudo mv ~/.local/bin/zoxide /usr/local/bin/
 
 chsh -s $(which zsh)
 
-stow --adopt ../zsh
+CURRENT_DIR=$(pwd)
+cd ..
+stow --adopt zsh
+cd "$CURRENT_DIR"
 
 # atuin
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
-stow --adopt ../atuin
+CURRENT_DIR=$(pwd)
+cd ..
+stow --adopt atuin
+cd "$CURRENT_DIR"
